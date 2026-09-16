@@ -74,5 +74,6 @@ test("the Cloudflare deployment targets the existing Worker and public assets", 
 
   assert.equal(config.name, "kaurimark-site");
   assert.equal(config.compatibility_date, "2026-09-16");
+  assert.equal(config.preview_urls, false);
   assert.equal(config.assets.directory, "./public/");
 });
