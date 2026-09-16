@@ -18,4 +18,8 @@ npm test
 
 ## Deploy
 
-Deploy the `public` directory to the `kaurimark-site` Cloudflare Pages project.
+Deploy the `public` directory to the existing `kaurimark-site` Cloudflare Worker:
+
+```sh
+npx wrangler deploy
+```

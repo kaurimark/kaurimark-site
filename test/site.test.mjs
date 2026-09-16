@@ -66,3 +66,13 @@ test("crawler and response policy files preserve indexing and privacy", async ()
   assert.match(headers, /Referrer-Policy: no-referrer/);
   assert.doesNotMatch(headers, /X-Robots-Tag:\s*(?:noindex|nofollow)/i);
 });
+
+test("the Cloudflare deployment targets the existing Worker and public assets", async () => {
+  const config = JSON.parse(
+    await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8"),
+  );
+
+  assert.equal(config.name, "kaurimark-site");
+  assert.equal(config.compatibility_date, "2026-09-16");
+  assert.equal(config.assets.directory, "./public/");
+});
